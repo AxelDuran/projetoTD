@@ -3,7 +3,17 @@ guid: 7b1be3e03cfd9d94fb80feda77b684d5
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dead Bark
+    second: {fileID: 2100000, guid: 7ec509741a5761d42a7484e34791a8ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dead Bark Musg
+    second: {fileID: 2100000, guid: 58b6760d3e8420b4fae16fafe8ecbba6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
