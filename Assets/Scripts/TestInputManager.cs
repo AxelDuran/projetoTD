@@ -10,7 +10,6 @@ public class TestInputManager : MonoBehaviour
     
     private bool interactPressed = false;
     private bool submitPressed = false;
-    // Start is called before the first frame update
     private static TestInputManager instance;
 
     private void Awake()
