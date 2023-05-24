@@ -3,7 +3,27 @@ guid: 2dcfe3b49e2db7640ba7d3353b6f6b38
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bag
+    second: {fileID: 2100000, guid: d449df9f98160294b9c89de8ba5525a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Soldier
+    second: {fileID: 2100000, guid: bfcff4f6d1b41894ca32d48e6f5908ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buttons
+    second: {fileID: 2100000, guid: d974b70b31122c04a98c59a4fe8a4ee2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: helmet
+    second: {fileID: 2100000, guid: efdf898a2bb9b9c4b921b6e9271767b6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
