@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8329500027009880005, guid: 2dd0b8183444ad341a74dbc59dc7554e,
+        type: 3}
+      propertyPath: m_WalkableMask
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 927233636584832810, guid: 2dd0b8183444ad341a74dbc59dc7554e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -30,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 1459484120443562336, guid: 2dd0b8183444ad341a74dbc59dc7554e,
         type: 3}
       propertyPath: m_Name
-      value: G_Red_Soldier
+      value: G_Red_Soldier Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2236865970552239066, guid: 2dd0b8183444ad341a74dbc59dc7554e,
         type: 3}

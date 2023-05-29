@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
     float enemySpeed;
 
-    Vector3 targetPlace;
+   [SerializeField] Vector3 targetPlace;
     GameObject m_Enemy;
     NavMeshAgent m_Agent;
     void Start()
