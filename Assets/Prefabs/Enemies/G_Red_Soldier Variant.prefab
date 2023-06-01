@@ -7,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8329500027009880005, guid: 2dd0b8183444ad341a74dbc59dc7554e,
-        type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 927233636584832810, guid: 2dd0b8183444ad341a74dbc59dc7554e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -92,5 +87,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845489317623635139, guid: 2dd0b8183444ad341a74dbc59dc7554e,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2dd0b8183444ad341a74dbc59dc7554e, type: 3}

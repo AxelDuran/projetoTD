@@ -1,23 +1,31 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+
 
 public class EnemyAI : MonoBehaviour
 {
-    float enemySpeed;
+    AIDestinationSetter destination;
+    public Transform target;
+    public string tagName;
+    // float enemySpeed;
 
-   [SerializeField] Vector3 targetPlace;
-    GameObject m_Enemy;
-    NavMeshAgent m_Agent;
+    //[SerializeField] Vector3 targetPlace;
+    // GameObject m_Enemy;
+    // NavMeshAgent m_Agent;
     void Start()
     {
-        m_Enemy = gameObject;
-        m_Agent = m_Enemy.GetComponent<NavMeshAgent>();
+        destination = GetComponent<AIDestinationSetter>();
+        target = GameObject.FindGameObjectWithTag(tagName).transform;
+        destination.target = target;
+        //m_Enemy = gameObject;
+        //m_Agent = m_Enemy.GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
-        m_Agent.SetDestination(targetPlace);
+        destination.target = target;
+        //m_Agent.SetDestination(targetPlace);
     }
 }
