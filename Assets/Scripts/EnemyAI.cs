@@ -1,4 +1,5 @@
 using Pathfinding;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,11 +22,21 @@ public class EnemyAI : MonoBehaviour
         destination.target = target;
         //m_Enemy = gameObject;
         //m_Agent = m_Enemy.GetComponent<NavMeshAgent>();
+        
     }
 
     void Update()
     {
         destination.target = target;
         //m_Agent.SetDestination(targetPlace);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "HQ" ) {
+            Debug.Log(other.name);
+           //ObjectPoolManager.ReturnObjectPool(gameObject);
+           gameObject.SetActive(false);
+        }
     }
 }

@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 8913721293092767874}
   - component: {fileID: 363418014359220246}
   - component: {fileID: 4774404359596074393}
+  - component: {fileID: 3408222528528383783}
   m_Layer: 0
   m_Name: 'Mark I '
   m_TagString: Untagged
@@ -242,6 +243,27 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+--- !u!65 &3408222528528383783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3111663237357301014}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 1.62, z: 1.35}
 --- !u!1 &3404259322120942639
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,25 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnerEnemy : MonoBehaviour
 {
    // [SerializeField] GameObject enemyToSpawn;
-    [SerializeField] GameObject[] enemyToSpawn;
-    [SerializeField] Transform[] localSpawn;
+    [SerializeField] GameObject enemyToSpawn;
+    [SerializeField] Transform localSpawn;
     [SerializeField] int maxEnemies = 5;
     [SerializeField] float spawnTime = 2f;
+    [SerializeField] ObjectPoolManager _objectPoolManager;
     int objectCount = 0;
     float timeToSpawn = 0f;
 
+    public int SetObjectCount( int valToSet)
+    {
+        return objectCount + valToSet;
+    }
+
+    public int ObjectCount()
+    {
+        return objectCount;
+    }
+
     void Start()
     {
-
+        _objectPoolManager = transform.GetComponent<ObjectPoolManager>();
     }
 
     void Update()
     {   
-       
            SpawEnemies();
     }
 
@@ -27,21 +38,15 @@ public class SpawnerEnemy : MonoBehaviour
     {
         if (Time.time >= timeToSpawn) 
         { 
-           // Spawna inimigos da lista de forma aleatoria
-            int randomSpawn = Random.Range(0,enemyToSpawn.Length);
-
-            // Define tempo de espera para spawnar um novo inimigo
             timeToSpawn = Time.time + spawnTime;
             if (objectCount < maxEnemies){
-                for (int i = 0;i < localSpawn.Length;i++)
-                {
-                 Instantiate(enemyToSpawn[randomSpawn], localSpawn[i].position, localSpawn[i].rotation);
+                enemyToSpawn = _objectPoolManager.GetPooledObjects();
+                enemyToSpawn.transform.position = localSpawn.position;
+                enemyToSpawn.transform.rotation = localSpawn.rotation;
+                enemyToSpawn.SetActive(true);
+                objectCount++;
+            }
 
-                 objectCount++;             
-                }
-            
-                }
-       
         }
     }
 }

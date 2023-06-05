@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 7845489317623635139}
   - component: {fileID: 8955693695943096532}
   - component: {fileID: -6415455176137964212}
+  - component: {fileID: 4945046757551346772}
   m_Layer: 0
   m_Name: G_Soldier
   m_TagString: Untagged
@@ -186,6 +187,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-3657286665049347257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +232,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -284,6 +286,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   tagName: HQ
+--- !u!136 &4945046757551346772
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459484120443562336}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.1440039
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.762998, z: 0.75}
 --- !u!1 &1652300149816933700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1620,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 87226493083216889}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0a3f101395860e4428c23f577efc0516,
@@ -1678,6 +1704,9 @@ PrefabInstance:
       value: Bayoneta
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a3f101395860e4428c23f577efc0516, type: 3}
 --- !u!4 &2240597086171598288 stripped
 Transform:

@@ -4,58 +4,39 @@ using System.Linq;
 using UnityEngine;
 
 public class ObjectPoolManager : MonoBehaviour
-
 {
-    public static List<PooledObjectInfo> objectPools = new List<PooledObjectInfo>();
-    public static GameObject SpawnObject(GameObject objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation)
+    public static ObjectPoolManager _objectPoolManagerIns;
+    public List<GameObject> _pooledObjects;
+    public GameObject _objectsToPool;
+    public int _poolCount;
+
+    void Awake()
     {
-        PooledObjectInfo pool = objectPools.Find(p => p.lookuoString == objectToSpawn.name);
-        if (pool != null)
-        {
-            pool = new PooledObjectInfo() { lookuoString = objectToSpawn.name };
-            objectPools.Add(pool);
-
-        }
-        //
-        GameObject spawnableObj = pool.inactiveObjects.FirstOrDefault();
-
-
-        if (spawnableObj == null)
-        {
-            spawnableObj = Instantiate(objectToSpawn, spawnPosition, spawnRotation);
-        }
-        else
-        {
-            spawnableObj.transform.position = spawnPosition;
-            spawnableObj.transform.rotation = spawnRotation;
-            pool.inactiveObjects.Remove(spawnableObj);
-            spawnableObj?.SetActive(true);
-
-        }
-
-        return spawnableObj;
+        _objectPoolManagerIns = this;
     }
 
-    public static void ReturnObjectPool(GameObject obj)
+    void Start()
     {
-        string goNmae = obj.name.Substring(0, obj.name.Length - 1);
-        PooledObjectInfo pool = objectPools.Find(p => p.lookuoString == obj.name);
-
-        if (pool == null)
+        _pooledObjects = new List<GameObject>();
+        GameObject tmp;
+        for(int i = 0; i < _poolCount; i++)
         {
-            Debug.LogWarning("" + obj.name);
+            tmp = Instantiate(_objectsToPool);
+            tmp.SetActive(false);
+            _pooledObjects.Add(tmp);
         }
-        else
-        {
-            obj.SetActive(false);
-            pool.inactiveObjects.Add(obj);
-        }
+    }
 
+    public GameObject GetPooledObjects()
+    {
+        for(int i = 0; i < _poolCount; i++)
+        {
+            if (!_pooledObjects[i].activeInHierarchy)
+            {
+                return _pooledObjects[i];
+            }
+        }
+        return null;
     }
 }
 
-public class PooledObjectInfo
-{
-    public string lookuoString;
-    public List<GameObject> inactiveObjects = new List<GameObject>();
-}
