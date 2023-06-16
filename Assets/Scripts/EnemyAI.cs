@@ -10,6 +10,8 @@ public class EnemyAI : MonoBehaviour
     AIDestinationSetter destination;
     public Transform target;
     public string tagName;
+    [SerializeField] GameObject _SpawnEnemyGO;
+    SpawnerEnemy _SpawnEnemy;
     // float enemySpeed;
 
     //[SerializeField] Vector3 targetPlace;
@@ -17,6 +19,8 @@ public class EnemyAI : MonoBehaviour
     // NavMeshAgent m_Agent;
     void Start()
     {
+        _SpawnEnemyGO = GameObject.Find("/Managers/SpawmManager");
+        _SpawnEnemy = _SpawnEnemyGO.GetComponent<SpawnerEnemy>();
         destination = GetComponent<AIDestinationSetter>();
         target = GameObject.FindGameObjectWithTag(tagName).transform;
         destination.target = target;
@@ -35,8 +39,9 @@ public class EnemyAI : MonoBehaviour
     {
         if (other.tag == "HQ" ) {
             Debug.Log(other.name);
-           //ObjectPoolManager.ReturnObjectPool(gameObject);
-           gameObject.SetActive(false);
+            //ObjectPoolManager.ReturnObjectPool(gameObject);
+            _SpawnEnemy.GetEnemyKilled(1);
+            gameObject.SetActive(false);
         }
     }
 }

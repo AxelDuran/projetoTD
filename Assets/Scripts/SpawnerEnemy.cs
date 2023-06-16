@@ -5,18 +5,25 @@ using UnityEngine;
 
 public class SpawnerEnemy : MonoBehaviour
 {
-   // [SerializeField] GameObject enemyToSpawn;
-    [SerializeField] GameObject enemyToSpawn;
+    GameObject enemyToSpawn;
     [SerializeField] Transform localSpawn;
     [SerializeField] int maxEnemies = 5;
     [SerializeField] float spawnTime = 2f;
     [SerializeField] ObjectPoolManager _objectPoolManager;
-    int objectCount = 0;
-    float timeToSpawn = 0f;
+    int objectCount;
+    public float timeToSpawn = 0f;
+    int enemyKilled = 0;
 
-    public int SetObjectCount( int valToSet)
+    public int GetEnemyKilled(int valToSet) //serve para guardar quantos inimigos morreram durante a onda atual
     {
-        return objectCount + valToSet;
+        enemyKilled+= valToSet;
+        return enemyKilled;
+    }
+
+    public int SetObjectCount( int valToSet) //serve para guardar quantos inimigos devem ser spawnados na onda atual
+    {
+        objectCount += valToSet;
+        return objectCount;
     }
 
     public int ObjectCount()
@@ -31,7 +38,10 @@ public class SpawnerEnemy : MonoBehaviour
 
     void Update()
     {   
-           SpawEnemies();
+        if(enemyKilled <= objectCount)
+        {
+            SpawEnemies();
+        }
     }
 
     private void SpawEnemies()
@@ -40,13 +50,34 @@ public class SpawnerEnemy : MonoBehaviour
         { 
             timeToSpawn = Time.time + spawnTime;
             if (objectCount < maxEnemies){
-                enemyToSpawn = _objectPoolManager.GetPooledObjects();
-                enemyToSpawn.transform.position = localSpawn.position;
-                enemyToSpawn.transform.rotation = localSpawn.rotation;
-                enemyToSpawn.SetActive(true);
-                objectCount++;
+                int spawnChoice = (int)Mathf.Floor(Random.Range(0, 3f));
+                print(spawnChoice);
+                switch (spawnChoice)
+                {
+                    default:
+                        enemyToSpawn = _objectPoolManager.GetPooledSoldier01();
+                        enemyToSpawn.transform.position = localSpawn.position;
+                        enemyToSpawn.transform.rotation = localSpawn.rotation;
+                        enemyToSpawn.SetActive(true);
+                        objectCount++;
+                        break;
+                    case 1:
+                        enemyToSpawn = _objectPoolManager.GetPooledSoldier02();
+                        enemyToSpawn.transform.position = localSpawn.position;
+                        enemyToSpawn.transform.rotation = localSpawn.rotation;
+                        enemyToSpawn.SetActive(true);
+                        objectCount++;
+                        break;
+                    case 2:
+                        enemyToSpawn = _objectPoolManager.GetPooledTank();
+                        enemyToSpawn.transform.position = localSpawn.position;
+                        enemyToSpawn.transform.rotation = localSpawn.rotation;
+                        enemyToSpawn.SetActive(true);
+                        objectCount++;
+                        break;
+                }
             }
 
-        }
+        }        
     }
 }
