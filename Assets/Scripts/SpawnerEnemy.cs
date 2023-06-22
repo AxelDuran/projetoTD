@@ -37,20 +37,20 @@ public class SpawnerEnemy : MonoBehaviour
     }
 
     void Update()
-    {   
-        if(enemyKilled <= objectCount)
+    {
+        if (enemyKilled <= objectCount)
         {
             SpawEnemies();
         }
     }
 
-    private void SpawEnemies()
+    public void SpawEnemies()
     {
         if (Time.time >= timeToSpawn) 
         { 
             timeToSpawn = Time.time + spawnTime;
             if (objectCount < maxEnemies){
-                int spawnChoice = (int)Mathf.Floor(Random.Range(0, 3f));
+                int spawnChoice = (int)Mathf.Floor(Random.Range(0, 4f));
                 print(spawnChoice);
                 switch (spawnChoice)
                 {
@@ -70,6 +70,13 @@ public class SpawnerEnemy : MonoBehaviour
                         break;
                     case 2:
                         enemyToSpawn = _objectPoolManager.GetPooledTank();
+                        enemyToSpawn.transform.position = localSpawn.position;
+                        enemyToSpawn.transform.rotation = localSpawn.rotation;
+                        enemyToSpawn.SetActive(true);
+                        objectCount++;
+                        break;
+                    case 3:
+                        enemyToSpawn = _objectPoolManager.GetPooledZepelin();
                         enemyToSpawn.transform.position = localSpawn.position;
                         enemyToSpawn.transform.rotation = localSpawn.rotation;
                         enemyToSpawn.SetActive(true);

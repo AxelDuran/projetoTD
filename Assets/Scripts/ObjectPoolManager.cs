@@ -11,11 +11,13 @@ public class ObjectPoolManager : MonoBehaviour
     public List<GameObject> _pooledSoldier01;
     public List<GameObject> _pooledSoldier02;
     public List<GameObject> _pooledTank;
+    public List<GameObject> _pooledZepelin;
 
     public List<GameObject> _objectsToPool;
     public int _poolCountS01;
     public int _poolCountS02;
     public int _poolCountT;
+    public int _poolCountZ;
 
     void Awake()
     {
@@ -27,6 +29,8 @@ public class ObjectPoolManager : MonoBehaviour
         _pooledSoldier01 = new List<GameObject>();
         _pooledSoldier02 = new List<GameObject>();
         _pooledTank = new List<GameObject>();
+        _pooledZepelin = new List<GameObject>();
+
         GameObject tmp;
         //cria o pool de soldados 01
         for(int i = 0; i < _poolCountS01; i++)
@@ -48,6 +52,13 @@ public class ObjectPoolManager : MonoBehaviour
             tmp = Instantiate(_objectsToPool[2]);
             tmp.SetActive(false);
             _pooledTank.Add(tmp);
+        }
+        //
+        for (int i = 0; i < _poolCountZ; i++)
+        {
+            tmp = Instantiate(_objectsToPool[3]);
+            tmp.SetActive(false);
+            _pooledZepelin.Add(tmp);
         }
     }
 
@@ -82,6 +93,18 @@ public class ObjectPoolManager : MonoBehaviour
             if (!_pooledTank[i].activeInHierarchy)
             {
                 return _pooledTank[i];
+            }
+        }
+        return null;
+    }
+
+    public GameObject GetPooledZepelin()
+    {
+        for (int i = 0; i < _poolCountZ; i++)
+        {
+            if (!_pooledZepelin[i].activeInHierarchy)
+            {
+                return _pooledZepelin[i];
             }
         }
         return null;
