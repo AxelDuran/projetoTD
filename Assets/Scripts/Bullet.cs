@@ -5,8 +5,10 @@ public class Bullet : MonoBehaviour
 
     private Transform target;
 
+
     public float speed = 70f;
     public GameObject hitBulletEffect;
+    public Vector3 targetOffset;
 
     public void Seek(Transform _target)
     {
@@ -30,14 +32,14 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.Translate((dir.normalized + targetOffset) * distanceThisFrame, Space.World);
         transform.LookAt(target);
     }
 
     void HitTarget()
     {
         Debug.Log("Alguma coisa");
-      GameObject effects =  Instantiate(hitBulletEffect, transform.position, transform.rotation);
+      GameObject effects =  Instantiate(hitBulletEffect, transform.position + targetOffset, transform.rotation);
         Destroy(effects, 1f );
         target.gameObject.SetActive(false);
         Destroy(gameObject);
