@@ -6,7 +6,7 @@ public class Node : MonoBehaviour
 
     private GameObject turret;
     private Renderer rend;
-    private Color startColor;
+  [SerializeField]  private Color startColor;
     private void Start()
     {
         rend = GetComponent<Renderer>();
