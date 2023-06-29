@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6477087834040986788}
   - component: {fileID: 1271053332839953199}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Turret MagicFlower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 874859682710610984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6094902621646815531}
   - {fileID: 1016291721264953068}
@@ -63,7 +63,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1016291721264953068}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Base To Rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e902a07a41ec66045b9a0292a91efacc,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -291,12 +291,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e1ee53b0b095e4e4da244c4053b409aa,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2369165852163169784, guid: e1ee53b0b095e4e4da244c4053b409aa,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

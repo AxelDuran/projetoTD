@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "HQ" ) {
+        if (other.tag == tagName) {
             Debug.Log(other.name);
             //ObjectPoolManager.ReturnObjectPool(gameObject);
             _SpawnEnemy.GetEnemyKilled(1);

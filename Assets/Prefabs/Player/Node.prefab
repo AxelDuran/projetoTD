@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5740429615925934317}
   - component: {fileID: 3485197278728076608}
   - component: {fileID: -6983601734366248765}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,4 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.8773585, g: 0.635263, b: 0.08608043, a: 0}
-  startColor: {r: 0.79687864, g: 0.8867924, b: 0.24595939, a: 0}
+  startColor: {r: 0.16608137, g: 0.7735849, b: 0.07662869, a: 0}
