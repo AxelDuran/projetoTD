@@ -6,9 +6,9 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
 
-    public float speed = 70f;
-    public GameObject hitBulletEffect;
-    public Vector3 targetOffset;
+    [SerializeField] private float speed = 70f;
+    [SerializeField] private GameObject hitBulletEffect;
+    [SerializeField] private Vector3 targetOffset; // corrige a direção da bala que segue o pivo dos objetos
 
     public void Seek(Transform _target)
     {
@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
     void HitTarget()
     {
         Debug.Log("Alguma coisa");
-      GameObject effects =  Instantiate(hitBulletEffect, transform.position + targetOffset, transform.rotation);
+        GameObject effects =  Instantiate(hitBulletEffect, transform.position + targetOffset, transform.rotation);
         Destroy(effects, 1f );
         target.gameObject.SetActive(false);
         Destroy(gameObject);

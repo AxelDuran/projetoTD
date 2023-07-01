@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    public Color hoverColor;
+    [SerializeField] private Color hoverColor;
 
     private GameObject turret;
     private Renderer rend;
