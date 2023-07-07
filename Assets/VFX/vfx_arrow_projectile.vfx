@@ -118,7 +118,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: 
+      m_SerializableObject: '{"obj":{"fileID":4019234525060620036,"guid":"7e894ab90e8a3e1409f5d07c582fb66e","type":3}}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -7915,7 +7915,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -7941,9 +7941,9 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614887}
       inputSlot: {fileID: 8926484042661614607}
-    position: {x: 674.4, y: 1209.6001}
+    position: {x: 644, y: 1141}
     expandedSlots: []
-    expanded: 0
+    expanded: 1
 --- !u!114 &8926484042661614887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7969,7 +7969,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2534964839176971238,"guid":"1fd1695eac68a6349a3089de405d44b5","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":4019234525060620036,"guid":"7e894ab90e8a3e1409f5d07c582fb66e","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: o

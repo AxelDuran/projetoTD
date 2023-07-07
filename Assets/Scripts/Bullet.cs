@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
         Debug.Log("Alguma coisa");
         GameObject effects =  Instantiate(hitBulletEffect, transform.position + targetOffset, transform.rotation);
         Destroy(effects, 1f );
-        target.gameObject.SetActive(false);
+        target.parent.gameObject.SetActive(false);
         Destroy(gameObject);
     }
 
