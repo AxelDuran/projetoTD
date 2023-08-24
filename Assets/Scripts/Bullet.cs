@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
 
     private Transform target;
 
+    [SerializeField] int danoBala;
 
     [SerializeField] private float speed = 70f;
     [SerializeField] private GameObject hitBulletEffect;
@@ -35,14 +36,14 @@ public class Bullet : MonoBehaviour
         transform.Translate((dir.normalized + targetOffset) * distanceThisFrame, Space.World);
         transform.LookAt(target);
     }
-
+    
     void HitTarget()
     {
-        Debug.Log("Alguma coisa");
+        //Debug.Log("Alguma coisa");
         GameObject effects =  Instantiate(hitBulletEffect, transform.position + targetOffset, transform.rotation);
         Destroy(effects, 1f );
-        target.parent.gameObject.SetActive(false);
+        target.parent.gameObject.GetComponent<EnemyAI>().SetVidaInimigo(danoBala);
         Destroy(gameObject);
     }
-
+   
 }

@@ -11,16 +11,20 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
     public string tagName;
     [SerializeField] GameObject _SpawnEnemyGO;
-    SpawnerEnemy _SpawnEnemy;
+    GameManager _gameManager;
     // float enemySpeed;
+
+    [SerializeField] int vidaInimigo;
+    int vidaOutimigo;
 
     //[SerializeField] Vector3 targetPlace;
     // GameObject m_Enemy;
     // NavMeshAgent m_Agent;
     void Start()
     {
-        _SpawnEnemyGO = GameObject.Find("/Managers/SpawmManager");
-        _SpawnEnemy = _SpawnEnemyGO.GetComponent<SpawnerEnemy>();
+        vidaOutimigo = vidaInimigo;
+        _SpawnEnemyGO = GameObject.Find("/Managers/GameManager");
+        _gameManager = _SpawnEnemyGO.GetComponent<GameManager>();
         destination = GetComponent<AIDestinationSetter>();
         target = GameObject.FindGameObjectWithTag(tagName).transform;
         destination.target = target;
@@ -33,15 +37,28 @@ public class EnemyAI : MonoBehaviour
     {
         destination.target = target;
         //m_Agent.SetDestination(targetPlace);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == tagName) {
-            Debug.Log(other.name);
-            //ObjectPoolManager.ReturnObjectPool(gameObject);
-            _SpawnEnemy.GetEnemyKilled(1);
+        if(vidaOutimigo <= 0)
+        {
+            _gameManager.SetEnemyKilled(1);
             gameObject.SetActive(false);
         }
     }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == tagName) {
+            _gameManager.SetEnemyKilled(1);
+            gameObject.SetActive(false);
+        }
+    }
+
+    public int GetVidaInimigo()
+    {
+        return vidaOutimigo;
+    }
+    public void SetVidaInimigo(int dano)
+    {
+        vidaOutimigo -= dano;
+    }
+
 }

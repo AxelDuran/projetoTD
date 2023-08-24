@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2041416845140602087}
   - component: {fileID: 7269281593965684945}
   - component: {fileID: -3081633820317290717}
+  - component: {fileID: 8263287845993186149}
   m_Layer: 0
   m_Name: Seed
   m_TagString: Untagged
@@ -97,10 +98,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e008f8597a800d4386d3b426a76faea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  danoBala: 5
   speed: 70
   hitBulletEffect: {fileID: 2533374204203758210, guid: b6fa7aeca375ecb469f6d128d25ef713,
     type: 3}
   targetOffset: {x: 0, y: 0.3, z: 0}
+--- !u!136 &8263287845993186149
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898862717543522582}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2175247607926078087
 GameObject:
   m_ObjectHideFlags: 0

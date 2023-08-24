@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int ondaAtual;
     [SerializeField] SpawnerEnemy _SpawnEnemy;
     [SerializeField] bool ondaAtivada;
+    int enemyKilled = 0;
 
     public int LeRecurso() //serve para ler o valor da variavel recurso
     {
@@ -28,17 +29,48 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        ondaAtivada = true;
         ondaAtual = 1;
     }
 
     void Update()
     {
-        int enemiesKilled = _SpawnEnemy.GetEnemyKilled(0);
+        int maxEnemys = _SpawnEnemy.GetMaxEnemy();
+        int enemyCount = _SpawnEnemy.ObjectCount();
+        /*
+        enemiesKilled = _SpawnEnemy.GetEnemyKilled();
         int enemiesSpawned = _SpawnEnemy.ObjectCount();
         if (!ondaAtivada && enemiesKilled<=enemiesSpawned)
         {
             ondaAtual += 1;
-            enemiesKilled = 0;
+        }*/
+        if (ondaAtivada && enemyCount < maxEnemys)
+        {
+            _SpawnEnemy.SpawEnemies();
         }
+
+        if (enemyKilled == maxEnemys && ondaAtivada) //realiza ações ao final da onda
+        {
+            ondaAtivada = false;
+            enemyKilled = 0;
+            Invoke(nameof(ResetaOnda), 2);
+        }
+    }
+
+    public void ResetaOnda()
+    {
+        _SpawnEnemy.SetMaxEnemy(1);
+        _SpawnEnemy.ResetaSpawner();
+        ondaAtivada=true;
+    }
+
+    public int SetEnemyKilled(int valToSet) //serve para guardar quantos inimigos morreram durante a onda atual
+    {
+        enemyKilled += valToSet;
+        return enemyKilled;
+    }
+    public int GetEnemyKilled() //serve para pegar quantos inimigos foram de base
+    {
+        return enemyKilled;
     }
 }

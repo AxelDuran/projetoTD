@@ -17,12 +17,16 @@ public class SpawnerEnemy : MonoBehaviour
     int rangeValue;
     int objectCount;
     public float timeToSpawn = 0f;
-    int enemyKilled = 0;
+    bool taSpawnando;
 
-    public int GetEnemyKilled(int valToSet) //serve para guardar quantos inimigos morreram durante a onda atual
+    public int SetMaxEnemy(int valToSet)
     {
-        enemyKilled+= valToSet;
-        return enemyKilled;
+        maxEnemies+=valToSet;
+        return maxEnemies;
+    }
+    public int GetMaxEnemy()
+    {
+        return maxEnemies;
     }
 
     public int SetObjectCount( int valToSet) //serve para guardar quantos inimigos devem ser spawnados na onda atual
@@ -30,20 +34,23 @@ public class SpawnerEnemy : MonoBehaviour
         objectCount += valToSet;
         return objectCount;
     }
-
     public int ObjectCount()
     {
         return objectCount;
     }
-
+ 
     void Start()
     {
         _objectPoolManager = transform.GetComponent<ObjectPoolManager>();
     }
-
     void Update()
     {
-        if (enemyKilled <= objectCount)
+        /*
+        print(enemyKilled + " " + objectCount);
+        taSpawnando = _objectPoolManager.VerificaAtivo();
+        print(taSpawnando);
+
+        if (enemyKilled < maxEnemies)
         {
             _gameManager.SetOnda(true);
             SpawEnemies();
@@ -52,7 +59,7 @@ public class SpawnerEnemy : MonoBehaviour
         {
             _gameManager.SetOnda(false);
             RangeTypeMod();
-        }
+        }*/
     }
 
     public void RangeTypeMod() //serve para aumentar as chances de spawn dos inimigos
@@ -63,13 +70,14 @@ public class SpawnerEnemy : MonoBehaviour
         type03 += ondas;
         type04 += ondas;
     }
-
     public void SpawEnemies()
     {
+        int enemyKilled = _gameManager.GetEnemyKilled();
         if (Time.time >= timeToSpawn) 
         { 
             timeToSpawn = Time.time + spawnTime;
-            if (objectCount < maxEnemies){
+            if (objectCount < maxEnemies)
+            {
                 int rangeMod = type04;
                 int spawnChoice = (int)Mathf.Floor(Random.Range(0, rangeMod));
                 print(spawnChoice);
@@ -89,7 +97,7 @@ public class SpawnerEnemy : MonoBehaviour
                     enemyToSpawn.SetActive(true);
                     objectCount++;
                 }
-                if(spawnChoice > type02 && spawnChoice <= type03)
+                if (spawnChoice > type02 && spawnChoice <= type03)
                 {
                     enemyToSpawn = _objectPoolManager.GetPooledTank();
                     enemyToSpawn.transform.position = localSpawn.position;
@@ -106,7 +114,11 @@ public class SpawnerEnemy : MonoBehaviour
                     objectCount++;
                 }
             }
-
         }        
+    }
+
+    public void ResetaSpawner()
+    {
+        objectCount = 0;
     }
 }

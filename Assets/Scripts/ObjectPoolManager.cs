@@ -19,6 +19,8 @@ public class ObjectPoolManager : MonoBehaviour
     public int _poolCountT;
     public int _poolCountZ;
 
+    bool temAinda;
+
     void Awake()
     {
         _objectPoolManagerIns = this;
@@ -109,5 +111,25 @@ public class ObjectPoolManager : MonoBehaviour
         }
         return null;
     }
-}
 
+    public bool VerificaAtivo()
+    {
+        for(int i = 0; i< _poolCountS01; i++)
+        {
+            bool soldier01status = _pooledSoldier01[i].activeInHierarchy;
+            bool soldier02status = _pooledSoldier02[i].activeInHierarchy;
+            bool tankStatus = _pooledTank[i].activeInHierarchy;
+            bool zepelinStatus = _pooledZepelin[i].activeInHierarchy;
+
+            if (soldier01status || soldier02status || tankStatus || zepelinStatus) 
+            {
+                temAinda = true;
+            }
+            else
+            {
+                temAinda= false;
+            }
+        }
+        return temAinda;
+    }
+}

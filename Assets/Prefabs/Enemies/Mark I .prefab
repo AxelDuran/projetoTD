@@ -161,6 +161,7 @@ MonoBehaviour:
   target: {fileID: 0}
   tagName: HQ
   _SpawnEnemyGO: {fileID: 0}
+  vidaInimigo: 20
 --- !u!114 &8913721293092767874
 MonoBehaviour:
   m_ObjectHideFlags: 0
