@@ -64,11 +64,12 @@ public class SpawnerEnemy : MonoBehaviour
 
     public void RangeTypeMod() //serve para aumentar as chances de spawn dos inimigos
     {
+        print(_gameManager.LeOnda());
         int ondas = _gameManager.LeOnda();
         type01 += ondas;
         type02 += ondas;
-        type03 += ondas;
-        type04 += ondas;
+        type03 += ondas+1;
+        type04 += ondas+2;
     }
     public void SpawEnemies()
     {

@@ -41,6 +41,7 @@ public class EnemyAI : MonoBehaviour
         {
             _gameManager.SetEnemyKilled(1);
             gameObject.SetActive(false);
+            vidaOutimigo = vidaInimigo;
         }
     }
     

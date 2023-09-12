@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e008f8597a800d4386d3b426a76faea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  danoBala: 5
+  danoBala: 20
   speed: 70
   hitBulletEffect: {fileID: 2533374204203758210, guid: b6fa7aeca375ecb469f6d128d25ef713,
     type: 3}

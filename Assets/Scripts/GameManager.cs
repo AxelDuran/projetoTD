@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int ondaAtual;
     [SerializeField] SpawnerEnemy _SpawnEnemy;
     [SerializeField] bool ondaAtivada;
+
+    int dinheiro = 0;
     int enemyKilled = 0;
 
     public int LeRecurso() //serve para ler o valor da variavel recurso
@@ -18,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public int LeOnda() //serve para ler quantas ondas ja se passaram
     {
-        return ondas;
+        return ondaAtual;
     } 
 
     public bool SetOnda(bool valor) //serve para verificar se tem alguma onda ativada
@@ -52,7 +54,9 @@ public class GameManager : MonoBehaviour
         if (enemyKilled == maxEnemys && ondaAtivada) //realiza ações ao final da onda
         {
             ondaAtivada = false;
+            ondaAtual++;
             enemyKilled = 0;
+            _SpawnEnemy.RangeTypeMod();
             Invoke(nameof(ResetaOnda), 2);
         }
     }
@@ -72,5 +76,15 @@ public class GameManager : MonoBehaviour
     public int GetEnemyKilled() //serve para pegar quantos inimigos foram de base
     {
         return enemyKilled;
+    }
+
+    public int SetDinheiro(int valoToSet)
+    {
+        dinheiro += valoToSet;
+        return dinheiro;
+    }
+    public int GetDinheiro()
+    {
+        return dinheiro;
     }
 }
